@@ -1,28 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:talkbrust/views/feed/feed_page.dart';
 import 'package:talkbrust/views/home/home_page.dart';
+import 'package:talkbrust/views/new_post_page.dart';
 import 'package:talkbrust/views/post/create_post.dart';
 import 'package:talkbrust/views/search/search_page.dart';
-import 'package:talkbrust/views/user/user_profile.dart';
+import 'package:talkbrust/views/user/user_profile_screen.dart';
 
-class DashboardPage extends StatefulWidget {
-  const DashboardPage({super.key});
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
 
   @override
-  State<DashboardPage> createState() => _DashboardPageState();
+  State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _DashboardScreenState extends State<DashboardScreen> {
   late PersistentTabController _controller;
 
   List<Widget> _buildScreens() {
     return const [
       HomePage(),
       SearchPage(),
-      CreatePostPage(),
-      UserProfilePage(),
+      NewPostPage(),
+      UserProfileScreen(),
     ];
   }
 
@@ -51,14 +51,11 @@ class _DashboardPageState extends State<DashboardPage> {
     ];
   }
 
-
   @override
   void initState() {
     _controller = PersistentTabController(initialIndex: 0);
     super.initState();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -91,5 +88,12 @@ class _DashboardPageState extends State<DashboardPage> {
       navBarStyle: NavBarStyle.style9,
     );
   }
+
+
+
+
+
 }
+
+
 
